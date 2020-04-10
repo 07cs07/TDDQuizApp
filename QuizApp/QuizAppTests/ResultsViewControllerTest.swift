@@ -17,23 +17,24 @@ class ResultsViewControllerTest: XCTestCase {
     
     func test_viewDidLoad_withAnswers_renderAnswer() {
         XCTAssertEqual(makeSUT(answers: []).tableView.numberOfRows(inSection: 0), 0)
-        XCTAssertEqual(makeSUT(answers: [makeDummyAnswer()]).tableView.numberOfRows(inSection: 0), 1)
+        XCTAssertEqual(makeSUT(answers: [makeAnswer()]).tableView.numberOfRows(inSection: 0), 1)
     }
         
     func test_viewDidLoad_withCorrectAnswer_rendersCorrectAnswer() {
-        let sut = makeSUT(answers: [makeAnswer(question: "Q1", answer: "A1", isCorrect: true)])
+        let sut = makeSUT(answers: [makeAnswer(question: "Q1", answer: "A1")])
         let cell = sut.tableView.cell(at: 0) as? CorrectAnswerCell
         XCTAssertNotNil(cell)
         XCTAssertEqual(cell?.questionLabel.text, "Q1")
         XCTAssertEqual(cell?.answerLabel.text, "A1")
     }
     
-    func test_viewDidLoad_withWrongAnswer_rendersWrongAnswerCell() {
-        let sut = makeSUT(answers: [makeAnswer(question: "Q1", answer: "A1", isCorrect: false)])
+    func test_viewDidLoad_withWrongAnswer_rendersCell() {
+        let sut = makeSUT(answers: [makeAnswer(question: "Q1", answer: "A1", wrongAnswer: "wrong")])
         let cell = sut.tableView.cell(at: 0) as? WrongAnswerCell
         XCTAssertNotNil(cell)
         XCTAssertEqual(cell?.questionLabel.text, "Q1")
         XCTAssertEqual(cell?.correctAnswerLabel.text, "A1")
+        XCTAssertEqual(cell?.wrongAnswerLabel.text, "wrong")
     }
         
 //    MARK:- Helpers
@@ -43,11 +44,7 @@ class ResultsViewControllerTest: XCTestCase {
         return sut
     }
     
-    private func makeDummyAnswer() -> PresantableAnswer {
-        return makeAnswer(isCorrect: false)
-    }
-    
-    private func makeAnswer(question: String = "", answer: String = "", isCorrect: Bool) -> PresantableAnswer {
-        return PresantableAnswer(question: question, answer: answer, isCorrect: isCorrect)
+    private func makeAnswer(question: String = "", answer: String = "", wrongAnswer: String? = nil) -> PresantableAnswer {
+        return PresantableAnswer(question: question, answer: answer, wrongAnswer: wrongAnswer)
     }
 }

@@ -13,6 +13,10 @@
 		4912496E243F8EF100595E40 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4912496D243F8EF100595E40 /* TableViewHelper.swift */; };
 		49173C7524401D3300F2370E /* CorrectAnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49173C7424401D3300F2370E /* CorrectAnswerCell.xib */; };
 		49173C772440245500F2370E /* WrongAnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49173C762440245500F2370E /* WrongAnswerCell.xib */; };
+		49173C7B2440A3EE00F2370E /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49173C7A2440A3EE00F2370E /* TableViewExtension.swift */; };
+		49173C7D2440A44100F2370E /* PresantableAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49173C7C2440A44100F2370E /* PresantableAnswer.swift */; };
+		49173C7F2440A45A00F2370E /* CorrectAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49173C7E2440A45A00F2370E /* CorrectAnswerCell.swift */; };
+		49173C812440A47800F2370E /* WrongAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49173C802440A47800F2370E /* WrongAnswerCell.swift */; };
 		494E039A243CCDD3004E68C3 /* QuestionViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494E0399243CCDD3004E68C3 /* QuestionViewControllerTest.swift */; };
 		494E039C243CCE7C004E68C3 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494E039B243CCE7C004E68C3 /* QuestionViewController.swift */; };
 		494E039E243CCF37004E68C3 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494E039D243CCF37004E68C3 /* QuestionViewController.xib */; };
@@ -39,6 +43,10 @@
 		4912496D243F8EF100595E40 /* TableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
 		49173C7424401D3300F2370E /* CorrectAnswerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CorrectAnswerCell.xib; sourceTree = "<group>"; };
 		49173C762440245500F2370E /* WrongAnswerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WrongAnswerCell.xib; sourceTree = "<group>"; };
+		49173C7A2440A3EE00F2370E /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
+		49173C7C2440A44100F2370E /* PresantableAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresantableAnswer.swift; sourceTree = "<group>"; };
+		49173C7E2440A45A00F2370E /* CorrectAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectAnswerCell.swift; sourceTree = "<group>"; };
+		49173C802440A47800F2370E /* WrongAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongAnswerCell.swift; sourceTree = "<group>"; };
 		494E0399243CCDD3004E68C3 /* QuestionViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewControllerTest.swift; sourceTree = "<group>"; };
 		494E039B243CCE7C004E68C3 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		494E039D243CCF37004E68C3 /* QuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
@@ -70,6 +78,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49173C782440A36700F2370E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				494E039D243CCF37004E68C3 /* QuestionViewController.xib */,
+				494E039B243CCE7C004E68C3 /* QuestionViewController.swift */,
+				49124969243F878A00595E40 /* ResultsViewController.swift */,
+				4912496B243F886E00595E40 /* ResultsViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		49173C792440A37800F2370E /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				49173C7E2440A45A00F2370E /* CorrectAnswerCell.swift */,
+				49173C7424401D3300F2370E /* CorrectAnswerCell.xib */,
+				49173C802440A47800F2370E /* WrongAnswerCell.swift */,
+				49173C762440245500F2370E /* WrongAnswerCell.xib */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		49CA3F1D243BA4C200828F05 = {
 			isa = PBXGroup;
 			children = (
@@ -92,16 +122,14 @@
 			isa = PBXGroup;
 			children = (
 				49CA3F29243BA4C200828F05 /* AppDelegate.swift */,
+				49173C7C2440A44100F2370E /* PresantableAnswer.swift */,
 				49CA3F2B243BA4C200828F05 /* SceneDelegate.swift */,
-				494E039D243CCF37004E68C3 /* QuestionViewController.xib */,
+				49173C792440A37800F2370E /* TableViewCells */,
+				49173C782440A36700F2370E /* ViewControllers */,
 				49CA3F32243BA4C400828F05 /* Assets.xcassets */,
 				49CA3F34243BA4C400828F05 /* LaunchScreen.storyboard */,
 				49CA3F37243BA4C400828F05 /* Info.plist */,
-				494E039B243CCE7C004E68C3 /* QuestionViewController.swift */,
-				49124969243F878A00595E40 /* ResultsViewController.swift */,
-				4912496B243F886E00595E40 /* ResultsViewController.xib */,
-				49173C7424401D3300F2370E /* CorrectAnswerCell.xib */,
-				49173C762440245500F2370E /* WrongAnswerCell.xib */,
+				49173C7A2440A3EE00F2370E /* TableViewExtension.swift */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -223,8 +251,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				49CA3F2A243BA4C200828F05 /* AppDelegate.swift in Sources */,
+				49173C7D2440A44100F2370E /* PresantableAnswer.swift in Sources */,
+				49173C7F2440A45A00F2370E /* CorrectAnswerCell.swift in Sources */,
 				49CA3F2C243BA4C200828F05 /* SceneDelegate.swift in Sources */,
 				494E039C243CCE7C004E68C3 /* QuestionViewController.swift in Sources */,
+				49173C812440A47800F2370E /* WrongAnswerCell.swift in Sources */,
+				49173C7B2440A3EE00F2370E /* TableViewExtension.swift in Sources */,
 				4912496A243F878A00595E40 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,11 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     
     window = UIWindow(frame: UIScreen.main.bounds)
-    let viewController = QuestionViewController(question: "A Question", options: ["A1", "A2"]) {
-        print($0)
-    }
+    let viewController = ResultsViewController(summary: "A Summary", answers: [
+        PresantableAnswer(question: "Question 1Question 1 Question 1 Question 1 Question 1 Question 1 Question 1 Question 1", answer: "Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer", wrongAnswer: nil),
+        PresantableAnswer(question: "Question 1", answer: "Im Correct", wrongAnswer: "Wrong Answer"),
+    ])
     _ = viewController.view
-    viewController.tableView.allowsMultipleSelection = false
+    
     window?.rootViewController = viewController
     window?.makeKeyAndVisible()
     return true

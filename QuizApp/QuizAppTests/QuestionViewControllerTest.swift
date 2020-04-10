@@ -54,6 +54,7 @@ class QuestionViewControllerTest: XCTestCase {
         var selectedOption = [String]()
         let sut = makeSUT(options: ["A1", "A2"]) { selectedOption = $0 }
         sut.tableView.allowsMultipleSelection = true
+        
         sut.tableView.select(at: 0)
         XCTAssertEqual(selectedOption, ["A1"])
 
