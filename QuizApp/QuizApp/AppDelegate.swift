@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuizEngine
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,15 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     
-    window = UIWindow(frame: UIScreen.main.bounds)
-    let viewController = ResultsViewController(summary: "A Summary", answers: [
-        PresantableAnswer(question: "Question 1Question 1 Question 1 Question 1 Question 1 Question 1 Question 1 Question 1", answer: "Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer", wrongAnswer: nil),
-        PresantableAnswer(question: "Question 1", answer: "Im Correct", wrongAnswer: "Wrong Answer"),
-    ])
-    _ = viewController.view
-    
-    window?.rootViewController = viewController
-    window?.makeKeyAndVisible()
+//    window = UIWindow(frame: UIScreen.main.bounds)
+//    let viewController = ResultsViewController(summary: "A Summary", answers: [
+//        PresantableAnswer(question: "Question 1Question 1 Question 1 Question 1 Question 1 Question 1 Question 1 Question 1", answer: "Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer", wrongAnswer: nil),
+//        PresantableAnswer(question: "Question 1", answer: "Im Correct", wrongAnswer: "Wrong Answer"),
+//    ])
+//    _ = viewController.view
+//    
+//    window?.rootViewController = viewController
+//    window?.makeKeyAndVisible()
     return true
   }
 
