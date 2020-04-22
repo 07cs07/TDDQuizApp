@@ -20,13 +20,25 @@ class iOSViewControllerFactory: ViewControllerFactory {
     init(options: [Question<String>: [String]]) {
         self.options = options
     }
-    
+        
     func questionViewController(for question: Question<String>, answerCallback: @escaping (([String]) -> Void)) -> UIViewController {
+        guard let options = options[question] else {
+            fatalError("it is not allowed to have a question: \(question) with not options")
+        }
+        return questionViewController(question: question, options: options, answerCallback: answerCallback)
+    }
+    
+    fileprivate func questionViewController(question: Question<String>, options: [String],  answerCallback: @escaping (([String]) -> Void)) -> UIViewController {
         switch question {
+            
         case .singleAnswer(let value):
-            return QuestionViewController(question: value, options: options[question]!, selection: answerCallback)
-        default:
-            return UIViewController()
+            return QuestionViewController(question: value, options: options, selection: answerCallback)
+            
+        case .multipleAnswer(let value):
+            let questionViewController = QuestionViewController(question: value, options: options, selection: answerCallback)
+            _ = questionViewController.view
+            questionViewController.tableView.allowsMultipleSelection = true
+            return questionViewController
         }
     }
     

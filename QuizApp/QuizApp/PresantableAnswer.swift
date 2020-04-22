@@ -13,3 +13,4 @@ struct PresantableAnswer {
     let answer: String
     let wrongAnswer: String?
 }
+ 
