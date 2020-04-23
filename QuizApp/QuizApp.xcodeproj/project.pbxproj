@@ -34,6 +34,9 @@
 		49CA3F2C243BA4C200828F05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CA3F2B243BA4C200828F05 /* SceneDelegate.swift */; };
 		49CA3F33243BA4C400828F05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CA3F32243BA4C400828F05 /* Assets.xcassets */; };
 		49CA3F36243BA4C400828F05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CA3F34243BA4C400828F05 /* LaunchScreen.storyboard */; };
+		49DDCB9E2450AD4700DA4677 /* iOSViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDCB9D2450AD4700DA4677 /* iOSViewControllerFactory.swift */; };
+		49DDCBA02450B25F00DA4677 /* QuestionPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDCB9F2450B25F00DA4677 /* QuestionPresenterTest.swift */; };
+		49DDCBA22451539100DA4677 /* QuestionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDCBA12451539100DA4677 /* QuestionPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +94,9 @@
 		49CA3F37243BA4C400828F05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49CA3F3C243BA4C500828F05 /* QuizAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CA3F42243BA4C500828F05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49DDCB9D2450AD4700DA4677 /* iOSViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSViewControllerFactory.swift; sourceTree = "<group>"; };
+		49DDCB9F2450B25F00DA4677 /* QuestionPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenterTest.swift; sourceTree = "<group>"; };
+		49DDCBA12451539100DA4677 /* QuestionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +182,9 @@
 				49CA3F37243BA4C400828F05 /* Info.plist */,
 				49173C7A2440A3EE00F2370E /* TableViewExtension.swift */,
 				4987DB4B2448CCFC00FA8DB2 /* ViewControllerFactory.swift */,
+				49DDCB9D2450AD4700DA4677 /* iOSViewControllerFactory.swift */,
 				49391E72244DC53D001D4A00 /* ResultsPresenter.swift */,
+				49DDCBA12451539100DA4677 /* QuestionPresenter.swift */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 			children = (
 				49CA3F42243BA4C500828F05 /* Info.plist */,
 				494E0399243CCDD3004E68C3 /* QuestionViewControllerTest.swift */,
+				49DDCB9F2450B25F00DA4677 /* QuestionPresenterTest.swift */,
 				49124967243F870000595E40 /* ResultsViewControllerTest.swift */,
 				4912496D243F8EF100595E40 /* TableViewHelper.swift */,
 				493181782445C7B200C5E8A0 /* NavigationControllerRouterTest.swift */,
@@ -304,11 +313,13 @@
 			files = (
 				49CA3F2A243BA4C200828F05 /* AppDelegate.swift in Sources */,
 				49173C7D2440A44100F2370E /* PresantableAnswer.swift in Sources */,
+				49DDCB9E2450AD4700DA4677 /* iOSViewControllerFactory.swift in Sources */,
 				49173C7F2440A45A00F2370E /* CorrectAnswerCell.swift in Sources */,
 				49391E73244DC53D001D4A00 /* ResultsPresenter.swift in Sources */,
 				49CA3F2C243BA4C200828F05 /* SceneDelegate.swift in Sources */,
 				494E039C243CCE7C004E68C3 /* QuestionViewController.swift in Sources */,
 				4931817F2446243F00C5E8A0 /* Question.swift in Sources */,
+				49DDCBA22451539100DA4677 /* QuestionPresenter.swift in Sources */,
 				49173C812440A47800F2370E /* WrongAnswerCell.swift in Sources */,
 				4931817B2445C7E000C5E8A0 /* NavigationControllerRouter.swift in Sources */,
 				49173C7B2440A3EE00F2370E /* TableViewExtension.swift in Sources */,
@@ -327,6 +338,7 @@
 				494E039A243CCDD3004E68C3 /* QuestionViewControllerTest.swift in Sources */,
 				4912496E243F8EF100595E40 /* TableViewHelper.swift in Sources */,
 				49124968243F870000595E40 /* ResultsViewControllerTest.swift in Sources */,
+				49DDCBA02450B25F00DA4677 /* QuestionPresenterTest.swift in Sources */,
 				4987DB4E2448CD4500FA8DB2 /* iOSViewControllerFactoryTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

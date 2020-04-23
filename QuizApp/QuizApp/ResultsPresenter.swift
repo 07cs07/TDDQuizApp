@@ -11,6 +11,7 @@ import QuizEngine
 
 struct ResultsPresenter {
     let result: Result<Question<String>, [String]>
+    let questions: [Question<String>]
     let correctAnswers: [Question<String>: [String]]
     
     var summary: String {
@@ -18,8 +19,8 @@ struct ResultsPresenter {
     }
     
     var answers: [PresantableAnswer] {
-        return result.answers.map { question, userAnswer in
-            guard let correctAnswer = correctAnswers[question] else {
+        return questions.map { question in
+            guard let userAnswer = result.answers[question], let correctAnswer = correctAnswers[question] else {
                 fatalError("couldn't find the answer for the question: \(question)")
             }
             return presantableAnswer(question, userAnswer, correctAnswer)
@@ -29,7 +30,6 @@ struct ResultsPresenter {
     private func presantableAnswer(_ question: Question<String>,_ userAnswer: [String], _ correctAnswers: [String]) -> PresantableAnswer {
         let formattedUserAnswer = formattedAnswer(userAnswer)
         let formattedCorrectAnswer = formattedAnswer(correctAnswers)
-        
         switch question {
         case .singleAnswer(let value):
             let wrongAnswer = formattedCorrectAnswer == formattedUserAnswer ? nil : formattedUserAnswer

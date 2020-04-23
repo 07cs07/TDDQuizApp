@@ -3,4 +3,54 @@
    uuid = "AF19B4DB-7FE2-4B9D-BC23-256E80368995"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "288BF187-B177-45E4-A172-A9E1E4C86FA8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuizApp/QuizApp/ResultsPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "presantableAnswer(_:_:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "288BF187-B177-45E4-A172-A9E1E4C86FA8 - d1a919d8d65e429b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuizApp.ResultsPresenter.(presantableAnswer in _66DB016620ED5EC22DA82F199F68D40E)(QuizApp.Question&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;) -&gt; QuizApp.PresantableAnswer"
+                  moduleName = "QuizApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bmahalingam/Documents/workspace/personal/interesting/tomatto_quiz1/QuizApp/QuizApp/ResultsPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "593">
+               </Location>
+               <Location
+                  uuid = "288BF187-B177-45E4-A172-A9E1E4C86FA8 - d1a919d8d65e429b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuizApp.ResultsPresenter.(presantableAnswer in _66DB016620ED5EC22DA82F199F68D40E)(QuizApp.Question&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;) -&gt; QuizApp.PresantableAnswer"
+                  moduleName = "QuizApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bmahalingam/Documents/workspace/personal/interesting/tomatto_quiz1/QuizApp/QuizApp/ResultsPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "642">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
