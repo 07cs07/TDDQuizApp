@@ -41,8 +41,7 @@ class QuestionViewControllerTest: XCTestCase {
     
     func test_selectedOptions_withMultipleOptionsEnabled_notifiesDelegateWhenSelectionChanges() {
         var selectedOption = [String]()
-        let sut = makeSUT(options: ["A1", "A2"]) { selectedOption = $0 }
-        sut.tableView.allowsMultipleSelection = true
+        let sut = makeSUT(options: ["A1", "A2"], allowsMultipleSelection: true) { selectedOption = $0 }
         sut.tableView.select(at: 0)
         XCTAssertEqual(selectedOption, ["A1"])
 
@@ -52,8 +51,7 @@ class QuestionViewControllerTest: XCTestCase {
     
     func test_deselecteOptions_withMultipleOptionsEnabled_notifiesDelegateWhenSelectionChanges() {
         var selectedOption = [String]()
-        let sut = makeSUT(options: ["A1", "A2"]) { selectedOption = $0 }
-        sut.tableView.allowsMultipleSelection = true
+        let sut = makeSUT(options: ["A1", "A2"], allowsMultipleSelection: true) { selectedOption = $0 }
         
         sut.tableView.select(at: 0)
         XCTAssertEqual(selectedOption, ["A1"])
@@ -64,7 +62,7 @@ class QuestionViewControllerTest: XCTestCase {
     
     func test_selecteOptions_withMoreOptions_doesNotNotifiesDelegateWhenSelectionChange() {
         var callbackCount = 0
-        let sut = makeSUT(options: ["A1", "A2"]) { _ in callbackCount += 1 }
+        let sut = makeSUT(options: ["A1", "A2"], allowsMultipleSelection: false) { _ in callbackCount += 1 }
         
         sut.tableView.select(at: 0)
         XCTAssertEqual(callbackCount, 1)
@@ -82,8 +80,9 @@ class QuestionViewControllerTest: XCTestCase {
     // MARK:- Helpers
     private func makeSUT(question: String = "",
                          options: [String] = [],
+                         allowsMultipleSelection: Bool = false,
                          selection: @escaping ([String]) -> Void = {_ in }) -> QuestionViewController {
-        let sut = QuestionViewController(question: question, options: options, selection: selection)
+        let sut = QuestionViewController(question: question, options: options, allowsMultipleSelection: allowsMultipleSelection, selection: selection)
         let _ = sut.view
         return sut
     }

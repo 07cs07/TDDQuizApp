@@ -20,14 +20,14 @@ class iOSViewControllerFactoryTest: XCTestCase {
         XCTAssertEqual(controller.question, "Q1")
         XCTAssertEqual(controller.title, "Question #1")
         XCTAssertEqual(controller.options, options)
-        XCTAssertEqual(controller.tableView.allowsMultipleSelection, false)
+        XCTAssertEqual(controller.allowsMultipleSelection, false)
     }
     
     func test_questionViewController_multipleAnswersQuestionType_createsQuestionController() {
         let controller = makeQuestionViewController(question: multipleAnswerQuestion)
         XCTAssertEqual(controller.question, "Q2")
         XCTAssertEqual(controller.options, options)
-        XCTAssertEqual(controller.tableView.allowsMultipleSelection, true)
+        XCTAssertEqual(controller.allowsMultipleSelection, true)
     }
     
     func test_questionViewController_withTotalTwoQuestions_rendersTitle() {
