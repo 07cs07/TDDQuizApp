@@ -11,38 +11,50 @@ import QuizEngine
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-  var window: UIWindow?
-
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+    var window: UIWindow?
+    private var game: Game<NavigationControllerRouter>?
+    private let navigationController = UINavigationController()
     
-//    window = UIWindow(frame: UIScreen.main.bounds)
-//    let viewController = ResultsViewController(summary: "A Summary", answers: [
-//        PresantableAnswer(question: "Question 1Question 1 Question 1 Question 1 Question 1 Question 1 Question 1 Question 1", answer: "Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer Correct Answer", wrongAnswer: nil),
-//        PresantableAnswer(question: "Question 1", answer: "Im Correct", wrongAnswer: "Wrong Answer"),
-//    ])
-//    _ = viewController.view
-//    
-//    window?.rootViewController = viewController
-//    window?.makeKeyAndVisible()
-    return true
-  }
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        configureWindow()
+        setupQuizGame()
+        return true
+    }
+    
+    private func configureWindow() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+    }
+}
 
-  // MARK: UISceneSession Lifecycle
-@available(iOS 13.0, *)
-  func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-    // Called when a new scene session is being created.
-    // Use this method to select a configuration to create the new scene with.
-    return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-  }
-  
-@available(iOS 13.0, *)
-  func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-    // Called when the user discards a scene session.
-    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-  }
-
-
+private extension AppDelegate {
+    func createQuestionSet() -> (questions: [Question<String>], options: [Question<String> : [String]], correctAnswers: [Question<String> : [String]]) {
+        let question1 = Question.singleAnswer("What is Mike's nationality?")
+        let question2 = Question.multipleAnswer("What are Caio's nationalities?")
+        let questions = [question1, question2]
+        
+        let option1 = "American"
+        let option2 = "Greek"
+        let option3 = "Canadian"
+        
+        let option4 = "Brazilian"
+        let option5 = "Russian"
+        let option6 = "Portuguese"
+        
+        let options = [question1: [option1, option2, option3], question2: [option2, option4, option5, option6]]
+        
+        let correctAnswers = [question1: [option2], question2: [option4, option6]]
+        
+        return (questions, options, correctAnswers)
+    }
+    
+    func setupQuizGame() {
+        let questionSet = createQuestionSet()
+        let factory = iOSViewControllerFactory(questions: questionSet.questions, options: questionSet.options, correctAnswers: questionSet.correctAnswers)
+        let router = NavigationControllerRouter(navigationController, factory: factory)
+        game = startGame(questions: questionSet.questions, router: router, correctAnswers: questionSet.correctAnswers)
+    }
 }
 
