@@ -62,4 +62,16 @@ class ResultsPresenterTest: XCTestCase {
         XCTAssertEqual(answers.last!.answer, "A1, A3")
         XCTAssertEqual(answers.last!.wrongAnswer, nil)
     }
+    
+    func test_presentableAnswers_multipleQuestions_withOneIncorrectOptionSelected_mapsOrderedAnswer() {
+        let result = Result(score: 0, answers: [multipleAnswerQuestion: ["A3", "A1", "A4"]])
+        let questions = [multipleAnswerQuestion]
+        let sut = ResultsPresenter(result: result, questions: questions, correctAnswers: [multipleAnswerQuestion: ["A1", "A3"]])
+        let answers = sut.answers
+        print(answers)
+        XCTAssertEqual(answers.count, 1)
+        XCTAssertEqual(answers.first!.question, "Q2")
+        XCTAssertEqual(answers.first!.answer, "A1, A3")
+        XCTAssertEqual(answers.first!.wrongAnswer, "A3, A1, A4")
+    }
 }

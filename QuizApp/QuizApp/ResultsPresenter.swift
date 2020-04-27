@@ -32,26 +32,28 @@ struct ResultsPresenter {
     }
     
     private func presantableAnswer(_ question: Question<String>,_ userAnswer: [String], _ correctAnswers: [String]) -> PresantableAnswer {
-        let formattedUserAnswer = formattedAnswer(userAnswer)
         let formattedCorrectAnswer = formattedAnswer(correctAnswers)
         switch question {
         case .singleAnswer(let value):
+            let formattedUserAnswer = formattedAnswer(userAnswer)
             let wrongAnswer = formattedCorrectAnswer == formattedUserAnswer ? nil : formattedUserAnswer
             return PresantableAnswer(question: value, answer: formattedCorrectAnswer, wrongAnswer: wrongAnswer)
             
         case .multipleAnswer(let value):
-            var userAnsweredCorrectly = true
-            userAnswer.forEach { answer in
-                if !correctAnswers.contains(answer) {
-                    userAnsweredCorrectly = false
+            var userAnsweredCorrectly = userAnswer.count == correctAnswers.count
+            if userAnsweredCorrectly {
+                correctAnswers.forEach { answer in
+                    if !userAnswer.contains(answer) {
+                        userAnsweredCorrectly = false
+                    }
                 }
             }
-            let wrongAnswer = userAnsweredCorrectly ? nil : formattedUserAnswer
+            let wrongAnswer = userAnsweredCorrectly ? nil : formattedAnswer(userAnswer)
             return PresantableAnswer(question: value, answer: formattedCorrectAnswer, wrongAnswer: wrongAnswer)
         }
     }
     
-    private func formattedAnswer(_ answer: [String]) -> String {
-        return answer.joined(separator: ", ")
+    private func formattedAnswer(_ answer: [String], separator: String = ", ") -> String {
+        return answer.joined(separator: separator)
     }
 }
