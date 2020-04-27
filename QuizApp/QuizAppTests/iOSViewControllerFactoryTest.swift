@@ -53,6 +53,11 @@ class iOSViewControllerFactoryTest: XCTestCase {
         XCTAssertEqual(makeResultSUT().controller.answers.count, makeResultSUT().presenter.answers.count)
     }
     
+    func test_title_forResultViewController() {
+        let sut = makeResultSUT()
+        XCTAssertEqual(sut.controller.title, sut.presenter.title)
+    }
+    
     // MARK: - Helpers
     
     func makeSUT(question: Question<String>) -> iOSViewControllerFactory {
