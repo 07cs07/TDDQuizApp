@@ -26,6 +26,7 @@ class NavigationControllerRouter: Router {
     switch question {
     case .singleAnswer(_):
         show(factory.questionViewController(for: question, answerCallback: answerCallback))
+        
     case .multipleAnswer(_):
         let button = UIBarButtonItem(title: "Submit", style: .done, target: nil, action: nil)
         let buttonController = SubmitBottonController(button: button, callback: answerCallback)
@@ -35,13 +36,11 @@ class NavigationControllerRouter: Router {
         controller.navigationItem.rightBarButtonItem = buttonController.button
         show(controller)
     }
-    
   }
   
   private func show(_ viewController: UIViewController) {
     navigationController.pushViewController(viewController, animated: true)
   }
-
 }
 
 private class SubmitBottonController: NSObject {

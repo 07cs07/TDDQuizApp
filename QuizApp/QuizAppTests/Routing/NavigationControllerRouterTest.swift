@@ -137,7 +137,6 @@ private extension UIBarButtonItem {
     }
 }
 
-
 //
 //extension Result : Hashable {
 //  init(answers:[Question: Answer], score: Int) {
