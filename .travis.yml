@@ -1,4 +1,5 @@
 os: osx
 osx_image: xcode11.3
 language: swift
-script: 
+xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
+script: xcodebuild clean build test -workspace QuizApp.xcworkspace -scheme "QuizApp" 
